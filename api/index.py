@@ -189,6 +189,9 @@ CORS(app)
 def is_positive_power_of_two(value):
     return value > 0 and (value & (value - 1) == 0)
 
+def is_positive_power_of_two_min4(value):
+    return value > 3 and (value & (value - 1) == 0)
+
 
 @app.route('/api/simulate', methods=['POST'])
 def simulate():
@@ -204,11 +207,11 @@ def simulate():
     except (KeyError, TypeError, ValueError):
         return jsonify({'error': 'All fields must be filled in with valid numbers.'}), 400
 
-    if not is_positive_power_of_two(cache_blocks):
-        return jsonify({'error': 'Cache Blocks must be a positive power of 2 (e.g. 4, 8, 16).'}), 400
+    if not is_positive_power_of_two_min4(cache_blocks):
+        return jsonify({'error': 'Cache Blocks must be a positive power of 2, minimum of 4 (e.g. 4, 8, 16).'}), 400
 
     if not is_positive_power_of_two(block_size):
-        return jsonify({'error': 'Block Size must be a positive power of 2 (e.g. 4, 8, 16).'}), 400
+        return jsonify({'error': 'Block Size must be a positive power of 2 (e.g. 2, 4, 8, 16).'}), 400
 
     if read_policy not in (0, 1):
         return jsonify({'error': 'Read Policy must be 0 or 1.'}), 400
