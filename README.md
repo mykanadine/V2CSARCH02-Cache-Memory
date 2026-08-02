@@ -4,9 +4,10 @@
 
 ```
 ├── src/App.jsx          the whole website (form + results)
-├── api/index.py         the server — receives form data, runs the simulation, sends back results
-├── api/cache_simulator.py   the actual cache logic 
-└── index.html            the page that loads App.jsx
+├── src/main.jsx         loads App.jsx into the page
+├── api/index.py         the server — cache simulation logic + Flask API that runs it, all in one file
+├── index.html            the page that loads App.jsx
+└── vercel.json           tells Vercel to route /api/* requests to api/index.py
 ```
 
 The website (`src/`) and the server (`api/`) are two separate programs that talk to each other over the internet — the website sends the form numbers to `/api/simulate`, the server runs the simulation and sends the results back.
