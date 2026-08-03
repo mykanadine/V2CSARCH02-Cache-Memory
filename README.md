@@ -45,7 +45,35 @@ Both terminals need to stay open while you're using it.
 | Cache Access Time | Parameterized | Greater than 0 |
 | Main Memory Access Time | Parameterized | Greater than 0 |
 
-output table...
+**Final Snapshot**
+| Output Parameter | Formula |
+|---|---|
+| Total Accesses | Count of all memory accesses |
+| Hits | Count of accesses found in cache |
+| Misses | Count of accesses not found in cache |
+| Hit Rate | Cache Hits ÷ Total Accesses × 100% |
+| Miss Rate | Cache Misses ÷ Total Accesses × 100% |
+| Avg. Memory Access Time | (Hit Rate × Cache Access Time) + (Miss Rate × Miss Penalty) |
+| Total Memory Access Time | Sum of all individual access times |
+| Execution Time(s) | Simulation runtime duration |
+| Main Memory Sequence | Exact order of requested block addresses |
+| Full Trace Log | Detailed Cache Memory Trace |
+| Final Cache State | Cache contents after last access |
+
+**Step-by-Step Animation**
+| Output Parameter | Formula |
+|---|---|
+| Total Accesses | Count of all memory accesses |
+| Hits | Count of accesses found in cache |
+| Misses | Count of accesses not found in cache |
+| Hit Rate | Cache Hits ÷ Total Accesses × 100% |
+| Miss Rate | Cache Misses ÷ Total Accesses × 100% |
+| Avg. Memory Access Time | (Hit Rate × Cache Access Time) + (Miss Rate × Miss Penalty) |
+| Total Memory Access Time | Sum of all individual access times |
+| Execution Time(s) | Simulation runtime duration |
+| Main Memory Sequence | Exact order of requested block addresses |
+| Full Trace Log | Detailed Cache Memory Trace |
+| Cache State | Animated cache contents updated step‑by‑step |
 
 ## Test Cases (Let n be the total number of cache blocks)
 
