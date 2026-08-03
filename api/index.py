@@ -176,7 +176,6 @@ class CacheSimulator:
 
         start_time = time.perf_counter()
         self.access_cache(access_sequence)
-        self.access_cache(access_sequence)
         elapsed = time.perf_counter() - start_time
 
         result = self.stats_snapshot(elapsed)
