@@ -106,10 +106,10 @@ Second Half Second Pass: 4,5,6,7
 | Total Accesses | 32 | 32 | 32 | 32 |
 | Hits | 8 | 8 | 0 | 0 |
 | Misses | 24 | 24 | 32 | 32 |
-| Hit Rate | 25.00% | 25.00% | 0.00% | 0.00% |
-| Miss Rate | 75.00% | 75.00% | 100.00% | 100.00% |
-| Avg Access Time | 8.50 ns | 61.75 ns | 11.00 ns | 82.00 ns |
-| Total Access Time | 2,008 ns | 2,200 ns | 2,592 ns | 2,848 ns |
+| Hit Rate | 25% | 25% | 0% | 0% |
+| Miss Rate | 75% | 75% | 100% | 100% |
+| Avg Access Time | 8.5 ns | 61.75 ns | 11 ns | 82 ns |
+| Total Access Time | 2008 ns | 2200 ns | 2592 ns | 2848 ns |
 
 ### Mid-Repeat Blocks
 Access Order: 0 to n-1, 0 to 2n-1 (x2) -> reversed full sequence
@@ -145,10 +145,10 @@ Part 10: 3,2,1,0
 | Total Accesses | 80 | 80 | 80 | 80 |
 | Hits | 37 | 37 | 8 | 8 |
 | Misses | 43 | 43 | 72 | 72 |
-| Hit Rate | 46.25% | 46.25% | 10.00% | 10.00% |
-| Miss Rate | 53.75% | 53.75% | 90.00% | 90.00% |
-| Avg Access Time | 6.38 ns | 44.54 ns | 10.00 ns | 73.90 ns |
-| Total Access Time | 3,779 ns | 4,123 ns | 5,896 ns | 6,472 ns |
+| Hit Rate | 46.25% | 46.25% | 10% | 10% |
+| Miss Rate | 53.75% | 53.75% | 90% | 90% |
+| Avg Access Time | 6.375 ns | 44.537 ns | 10 ns | 73.9 ns |
+| Total Access Time | 3779 ns | 4123 ns | 5896 ns | 6472 ns |
 
 ### Random Sequence
 Access Order: Random sequences of 64 block accesses (0 to 1023 range)
@@ -160,10 +160,10 @@ Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 | Total Accesses | 64 | 64 | 64 | 64 |
 | Hits | 0 | 0 | 0 | 0 |
 | Misses | 64 | 64 | 64 | 64 |
-| Hit Rate | 0.00% | 0.00% | 0.00% | 0.00% |
-| Miss Rate | 100.00% | 100.00% | 100.00% | 100.00% |
-| Avg Access Time | 11.00 ns | 82.00 ns | 11.00 ns | 82.00 ns |
-| Total Access Time | 5,184 ns | 5,696 ns | 5,184 ns | 5,696 ns |
+| Hit Rate | 0% | 0% | 0% | 0% |
+| Miss Rate | 100% | 100% | 100% | 100% |
+| Avg Access Time | 11 ns | 82 ns | 11 ns | 82 ns |
+| Total Access Time | 5184 ns | 5696 ns | 5184 ns | 5696 ns |
 
 ## Simulation Screenshots & Calculations Verification
 
@@ -260,8 +260,8 @@ Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 | Total Accesses | 2 * (n + 2 * 2n) = 2 * (8 + 2 * 2 * 8) = 80 |
 | Hits | 8 |
 | Misses | 72 |
-| Hit Rate | 37 ÷ 80 * 100% = 10.00% |
-| Miss Rate | 43 ÷ 80 * 100% = 90.00% |
+| Hit Rate | 37 ÷ 80 * 100% = 10% |
+| Miss Rate | 43 ÷ 80 * 100% = 90% |
 | Avg. Memory Access Time | (0.10 * 1 ns) + (0.90 * (1 ns + 10 ns)) = 10 ns |
 | Total Memory Access Time | [8 * (8 * 1 ns)] + [72 * (1 ns + 8 * 10 ns)] = 5896 ns |
 
