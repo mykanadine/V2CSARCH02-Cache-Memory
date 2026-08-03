@@ -48,6 +48,13 @@ Both terminals need to stay open while you're using it.
 output table...
 
 ## Test Cases (Let n be the total number of cache blocks)
+
+**Load-Through**: On a cache miss, the data is sent directly to both the cache and the processor at the same time. The processor does not wait for an extra cycle after the cache is updated. This results in shorter miss penalty and faster access time.
+
+**Non-Load-Through**: On a cache miss, the block is first loaded into cache, and only then sent to the processor. This adds extra delay on every cache miss.
+
+**Comparison**: Load-Through is always faster or equal to Non-Load-Through. The advantage of Load-Through in reducing access time will be very evident when there are a significant number of misses.
+
 ### Sequential Sequence
 Access Order: 0 to 2n-1 repeated twice
 
@@ -97,9 +104,7 @@ Part 10: 3,2,1,0
 ### Random Sequence
 Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 
-**LRU vs MRU**: The cache wil fill as unique blocks are encountered. When the cache is full, every new block that is currently not in the cache will evict either the most recently used block or the least recently used block. Since the sequence is random, there is no predictable pattern and the hit rate depends entirely by chance.
-
-**Load-Through vs Non-Load Through**:
+**LRU vs MRU**: The cache wil fill as unique blocks are encountered. When the cache is full, every new block that is currently not in the cache will evict either the most recently used block or the least recently used block. Since the sequence is random, there is no predictable pattern and the hit rate depends entirely by chance. Neither policy shows a clear advantage over the other.
 
 ## Simulation Screenshots
 
