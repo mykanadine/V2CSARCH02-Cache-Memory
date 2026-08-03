@@ -5,6 +5,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   text-align: left;
+  background: var(--card-bg);
 }
 
 /* keep the input form itself narrow even though the outer container is wider now,
@@ -26,12 +27,18 @@
 .simulator input {
   padding: 0.4rem;
   font-size: 1rem;
+  /* these boxes are always white, in both light and dark mode, so force
+     the browser's native form-control rendering (text color included) to
+     stick to the light scheme too — otherwise in dark mode the browser
+     draws light text on our white background and it disappears */
+  color-scheme: light;
 }
 
 .simulator select {
   padding: 0.4rem;
   font-size: 1rem;
   background: #fff;
+  color-scheme: light;
 }
 
 .simulator button {
@@ -75,6 +82,11 @@
   background: #fff;
   border-radius: 6px;
   cursor: pointer;
+  /* this box is always white regardless of theme, so pin its text color
+     instead of inheriting the theme-flipping --text (which goes light
+     in dark mode and disappears against the white background) */
+  color: #333;
+  color-scheme: light;
 }
 
 .toggle-btn.active {
@@ -94,11 +106,20 @@
   border-radius: 8px;
   padding: 1rem;
   background: #fafafa;
+  /* this card is always light gray regardless of theme, so pin the text
+     color here — everything inside without its own explicit color (stat
+     values, cache slot numbers, etc.) inherits this instead of the
+     theme-flipping --text, which goes too light against this background
+     in dark mode */
+  color: #3f3a46;
 }
 
 .test-case-card h2 {
   margin: 0 0 0.75rem;
   font-size: 1.1rem;
+  /* overrides the global h1/h2 rule's var(--text-h), which flips near-white
+     in dark mode and becomes unreadable against this always-light card */
+  color: #1a1625;
 }
 
 .stats-grid {
@@ -180,7 +201,7 @@
   background: #fff;
 }
 
-/* live hit/miss tally, sits under the step result in the left panel */
+/* live hit/miss tally, now sits under the step result in the left panel */
 .live-counter {
   display: flex;
   gap: 0.5rem;
@@ -284,8 +305,8 @@
   margin-left: auto;
 }
 
-/* cache slot visualization, shared by snapshot + animation views,
-   stacked vertically, capped height + scroll so a large cache (16+ blocks)
+/* cache slot visualization, shared by snapshot + animation views.
+   stacked vertically. capped height + scroll so a large cache (16+ blocks)
    doesn't push the playback controls off screen */
 .cache-row {
   display: flex;
