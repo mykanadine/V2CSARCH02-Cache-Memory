@@ -81,15 +81,15 @@ function App() {
         <label>
           Read Policy:
           <select name="read_policy" value={formData.read_policy} onChange={handleChange}>
-            <option value={0}>0 = NLT (Not Load-Through)</option>
-            <option value={1}>1 = LT (Load-Through)</option>
+            <option value={0}>NLT (Not Load-Through)</option>
+            <option value={1}>LT (Load-Through)</option>
           </select>
         </label>
         <label>
           Replacement Algorithm:
           <select name="replacement_algorithm" value={formData.replacement_algorithm} onChange={handleChange}>
-            <option value={0}>0 = LRU (Least Recently Used)</option>
-            <option value={1}>1 = MRU (Most Recently Used)</option>
+            <option value={0}>LRU (Least Recently Used)</option>
+            <option value={1}>MRU (Most Recently Used)</option>
           </select>
         </label>
         <label>
