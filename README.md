@@ -138,6 +138,7 @@ Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 ## Simulation Screenshots & Calculations Verification
 
 ### Normal Cases
+**Load-Through Most Recently Used**
 ![LT MRU Animation](screenshots/LT-MRU-Animation.png)
 ![LT MRU Snapshot](screenshots/LT-MRU-Snapshot.png)
 **Sequential**
@@ -173,6 +174,7 @@ Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 | Avg. Memory Access Time | (0 * 1 ns) + (1.0 * (1 ns + 10 ns)) = 11 ns |
 | Total Memory Access Time | [0 * (8 * 1 ns)] + [64 * (1 ns + 8 * 10 ns)] = 5184 ns |
 
+**Non-Load-Through Most Recently Used**
 ![NLT MRU Animation](screenshots/NLT-MRU-Animation.png)
 ![NLT MRU Snapshot](screenshots/NLT-MRU-Snapshot.png)
 **Sequential**
@@ -208,6 +210,7 @@ Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 | Avg. Memory Access Time | (0 * 1 ns) + (1.0 * (1 ns + 8*10 ns + 1 ns)) = 82 ns |
 | Total Memory Access Time | [0 * (8 * 1 ns)] + [64 * (1 ns + 8 * 10 ns + 8 * 1 ns)] = 5696 ns |
 
+**Load-Through Least Recently Used**
 ![LT LRU Animation](screenshots/LT-LRU-Animation.png)
 ![LT LRU Snapshot](screenshots/LT-LRU-Snapshot.png)
 **Sequential**
@@ -243,6 +246,7 @@ Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 | Avg. Memory Access Time | (0 * 1 ns) + (1.0 * (1 ns + 10 ns)) = 11 ns |
 | Total Memory Access Time | [0 * (8 * 1 ns)] + [64 * (1 ns + 8 * 10 ns)] = 5184 ns |
 
+**Non-Load-Through Least Recently Used**
 ![NLT LRU Animation](screenshots/NLT-LRU-Animation.png)
 ![NLT LRU Snapshot](screenshots/NLT-LRU-Snapshot.png)
 **Sequential**
