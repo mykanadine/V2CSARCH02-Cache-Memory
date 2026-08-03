@@ -46,7 +46,7 @@ Both terminals need to stay open while you're using it.
 | Cache Access Time | Parameterized | Greater than 0 |
 | Main Memory Access Time | Parameterized | Greater than 0 |
 
-**Final Snapshot**
+**Final Snapshot Output**
 | Output Parameter | Formula |
 |---|---|
 | Total Accesses | Count of all memory accesses |
@@ -61,7 +61,7 @@ Both terminals need to stay open while you're using it.
 | Full Trace Log | Detailed Cache Memory Trace |
 | Final Cache State | Cache contents after last access |
 
-**Step-by-Step Animation**
+**Step-by-Step Animation Output**
 | Output Parameter | Formula |
 |---|---|
 | Total Accesses | Count of all memory accesses |
