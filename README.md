@@ -33,6 +33,17 @@ Then open the URL it prints (usually `http://localhost:5173`).
 
 Both terminals need to stay open while you're using it.
 
+## Parameters
+| Parameter | Type | Specification |
+|---|---|---|
+| Cache Mapping Function | Fixed | Fully Associative |
+| Main Memory Size | Fixed | 1024 blocks |
+| Cache Blocks | Parameterized | Minimum 4 blocks; power of 2 |
+| Block Size | Parameterized | Minimum 2 words; power of 2 |
+| Read Policy | Parameterized | Load-through or Non-load-through |
+| Replacement Algorithm | Parameterized | Least Recently Used (LRU) or Most Recently Used (MRU) |
+| Cache Access Time | Parameterized | Greater than 0 |
+| Main Memory Access Time | Parameterized | Greater than 0 |
 # Test Cases
 
 ## Sequential Sequence
