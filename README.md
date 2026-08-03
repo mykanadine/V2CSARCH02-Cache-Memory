@@ -101,6 +101,16 @@ Second Half Second Pass: 4,5,6,7
 
 **MRU**: The cache fills from top to bottom during the first half of the first pass until it becomes full (Cache: 0,1,2,3). As the second half of the first pass is accessed, the most recently used block, which is the last position, will be continuously modified until the end of the second half first pass (Cache: 0,1,2,7). When the second pass first half begins, the blocks except for the last block in the first half will hit. Since it's most recently used, the second to the last position will be replaced by the last block in first half second pass (Cache: 0,1,3,7). When the second half of the second pass is accessed, the most recently used is still the second to the last position. This position will be continuously modified until the last block of the second half hit the last block (Cache: 0,1,6,7). This results in a higher hit rate than LRU.
 
+| Metric | Load-Through MRU | Non-Load-Through MRU | Load-Through LRU | Non-Load-Through LRU |
+|---|---|---|---|---|
+| Total Accesses | 32 | 32 | 32 | 32 |
+| Hits | 8 | 8 | 0 | 0 |
+| Misses | 24 | 24 | 32 | 32 |
+| Hit Rate | 25.00% | 25.00% | 0.00% | 0.00% |
+| Miss Rate | 75.00% | 75.00% | 100.00% | 100.00% |
+| Avg Access Time | 8.50 ns | 61.75 ns | 11.00 ns | 82.00 ns |
+| Total Access Time | 2,008 ns | 2,200 ns | 2,592 ns | 2,848 ns |
+
 ### Mid-Repeat Blocks
 Access Order: 0 to n-1, 0 to 2n-1 (x2) -> reversed full sequence
 
@@ -130,10 +140,30 @@ Part 10: 3,2,1,0
 
 **MRU**: The cache fills from top to bottom during part 1. For part 2, all 4 blocks will hit because it is exactly the same as part 1. When part 3 is accessed, it will miss and continously replace the last block (Cache: 0,1,2,7). For part 4, all blocks will hit except for the last block since it is already replaced by part 3. Since this is most recently used, the second to the last block will be replaced by the last block in part 4 (Cache: 0,1,3,7). For part 5, it will continuously modify the second to the last block until the last block of part 5 matches the last block in cache (Cache: 0,1,6,7). For part 6, the last block will be continously replaced by the first 2 blocks until the others will hit (Cache: 0,1,6,2). The most recently used block currently is now the first cache block. For part 7, only the second block will hit. However, it will be replaced by the blocks after it (Cache: 7,1,4,2). For part 8, only two blocks will hit (Cache: 7,0,3,2). For part 9, only one block will hit (Cache: 4,0,3,2). Lastly, the 3 blocks will hit (Cache: 4,0,3,1). This clearly indicates higher hit rate compared to LRU, since LRU only hits in the first 2 parts.
 
+| Metric | Load-Through MRU | Non-Load-Through MRU | Load-Through LRU | Non-Load-Through LRU |
+|---|---|---|---|---|
+| Total Accesses | 80 | 80 | 80 | 80 |
+| Hits | 37 | 37 | 8 | 8 |
+| Misses | 43 | 43 | 72 | 72 |
+| Hit Rate | 46.25% | 46.25% | 10.00% | 10.00% |
+| Miss Rate | 53.75% | 53.75% | 90.00% | 90.00% |
+| Avg Access Time | 6.38 ns | 44.54 ns | 10.00 ns | 73.90 ns |
+| Total Access Time | 3,779 ns | 4,123 ns | 5,896 ns | 6,472 ns |
+
 ### Random Sequence
 Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 
 **LRU vs MRU**: The cache wil fill as unique blocks are encountered. When the cache is full, every new block that is currently not in the cache will evict either the most recently used block or the least recently used block. Since the sequence is random, there is no predictable pattern and the hit rate depends entirely by chance. Neither policy shows a clear advantage over the other.
+
+| Metric | Load-Through MRU | Non-Load-Through MRU | Load-Through LRU | Non-Load-Through LRU |
+|---|---|---|---|---|
+| Total Accesses | 64 | 64 | 64 | 64 |
+| Hits | 0 | 0 | 0 | 0 |
+| Misses | 64 | 64 | 64 | 64 |
+| Hit Rate | 0.00% | 0.00% | 0.00% | 0.00% |
+| Miss Rate | 100.00% | 100.00% | 100.00% | 100.00% |
+| Avg Access Time | 11.00 ns | 82.00 ns | 11.00 ns | 82.00 ns |
+| Total Access Time | 5,184 ns | 5,696 ns | 5,184 ns | 5,696 ns |
 
 ## Simulation Screenshots & Calculations Verification
 
