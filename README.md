@@ -34,6 +34,7 @@ Then open the URL it prints (usually `http://localhost:5173`).
 Both terminals need to stay open while you're using it.
 
 ## Parameters & Outputs
+**Input Parameters**
 | Parameter | Type | Specification |
 |---|---|---|
 | Cache Mapping Function | Fixed | Fully Associative |
