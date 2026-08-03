@@ -325,8 +325,8 @@ Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 | Misses | 12 |
 | Hit Rate | 4 ÷ 16 * 100% = 25% |
 | Miss Rate | 12 ÷ 16 * 100% = 75% |
-| Avg. Memory Access Time | (0.25 * 1 ns) + (0.75 * (1 ns + 2 * 10 ns + 1 ns)) = 16.75 ns |
-| Total Memory Access Time | [4 * (2 * 1 ns)] + [12 * (1 ns + 2 * 10 ns + 2 * 1 ns)] = 284 ns |
+| Avg. Memory Access Time | (0.25 * 1 ns) + (0.75 * (1 ns + 2 * 1 ns + 1 ns)) = 3.25 ns |
+| Total Memory Access Time | [4 * (2 * 1 ns)] + [12 * (1 ns + 2 * 1 ns + 2 * 1 ns)] = 68 ns |
 
 **Mid-Repeat**
 | Output | Calculation Verification |
@@ -336,8 +336,8 @@ Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 | Misses | 23 |
 | Hit Rate | 17 ÷ 40 * 100% = 42.5% |
 | Miss Rate | 23 ÷ 40 * 100% = 57.5% |
-| Avg. Memory Access Time | (0.425 * 1 ns) + (0.575 * (1 ns + 2* 10 ns + 1 ns)) = 13.075 ns |
-| Total Memory Access Time | [17 * (2 * 1 ns)] + [23 * (1 ns + 2 * 10 ns + 2 * 1 ns)] = 563 ns |
+| Avg. Memory Access Time | (0.425 * 1 ns) + (0.575 * (1 ns + 2 * 1 ns + 1 ns)) = 2.725 ns |
+| Total Memory Access Time | [17 * (2 * 1 ns)] + [23 * (1 ns + 2 * 1 ns + 2 * 1 ns)] = 149 ns |
 
 **Random**
 | Output | Calculation Verification |
@@ -347,6 +347,6 @@ Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 | Misses | 64 |
 | Hit Rate | 0 ÷ 64 * 100% = 0% |
 | Miss Rate | 64 ÷ 64 * 100% = 100% |
-| Avg. Memory Access Time | (0 * 1 ns) + (1.0 * (1 ns + 2* 10 ns + 1 ns)) = 22 ns |
-| Total Memory Access Time | [0 * (2 * 1 ns)] + [64 * (1 ns + 2 * 10 ns + 2 * 1 ns)] = 1472 ns |
+| Avg. Memory Access Time | (0 * 1 ns) + (1.0 * (1 ns + 2 * 1 ns + 1 ns)) = 4 ns |
+| Total Memory Access Time | [0 * (2 * 1 ns)] + [64 * (1 ns + 2 * 1 ns + 2 * 1 ns)] = 320 ns |
 
