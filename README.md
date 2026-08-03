@@ -52,9 +52,9 @@ Both terminals need to stay open while you're using it.
 | Total Accesses | Count of all memory accesses |
 | Hits | Count of accesses found in cache |
 | Misses | Count of accesses not found in cache |
-| Hit Rate | Cache Hits ÷ Total Accesses × 100% |
-| Miss Rate | Cache Misses ÷ Total Accesses × 100% |
-| Avg. Memory Access Time | (Hit Rate × Cache Access Time) + (Miss Rate × Miss Penalty) |
+| Hit Rate | Cache Hits ÷ Total Accesses * 100% |
+| Miss Rate | Cache Misses ÷ Total Accesses * 100% |
+| Avg. Memory Access Time | (Hit Rate * Cache Access Time) + (Miss Rate * Miss Penalty) |
 | Total Memory Access Time | Sum of all individual access times |
 | Execution Time(s) | Simulation runtime duration |
 | Main Memory Sequence | Exact order of requested block addresses |
