@@ -1,5 +1,5 @@
 .simulator {
-  max-width: 500px;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 1.5rem;
   border: 1px solid #ddd;
@@ -7,10 +7,13 @@
   text-align: left;
 }
 
+/* keep the input form itself narrow even though the outer container is wider now,
+   since the extra width is only needed for the animation/results below */
 .simulator form {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  max-width: 500px;
 }
 
 .simulator label {
@@ -23,6 +26,12 @@
 .simulator input {
   padding: 0.4rem;
   font-size: 1rem;
+}
+
+.simulator select {
+  padding: 0.4rem;
+  font-size: 1rem;
+  background: #fff;
 }
 
 .simulator button {
@@ -45,4 +54,359 @@
 
 .error {
   color: #c0392b;
+}
+
+.view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.view-toggle span {
+  color: #666;
+}
+
+.toggle-btn {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.toggle-btn.active {
+  background: #6a4bff;
+  border-color: #6a4bff;
+  color: #fff;
+}
+
+.test-cases {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.test-case-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fafafa;
+}
+
+.test-case-card h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.stats-grid div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  border-bottom: 1px dashed #e0e0e0;
+  padding-bottom: 0.15rem;
+}
+
+.stats-grid span {
+  color: #666;
+}
+
+.final-cache-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  min-height: 1.2rem;
+}
+
+/* used for the step-by-step animation's "Step:", "Main Memory Sequence:",
+   and "Block # -> HIT/MISS" lines */
+.step-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin: 0.4rem 0;
+}
+
+.sequence-list {
+  font-weight: 400;
+  font-family: var(--mono, monospace);
+  font-size: 0.8rem;
+  word-break: break-word;
+}
+
+.sequence-item.current {
+  background: #6a4bff;
+  color: #fff;
+  border-radius: 3px;
+  padding: 0 2px;
+  font-weight: 700;
+}
+
+/* two-column layout for the animation view: sequence/step info on the left,
+   live counter + cache slots + controls on the right. lets long sequences
+   use the extra horizontal space instead of just stacking everything vertically */
+.step-animation-layout {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.step-info-panel {
+  flex: 2;
+  min-width: 260px;
+}
+
+.animation-panel {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* the sequence itself gets a capped height + scroll, so a long sequence
+   (e.g. 128 steps for the random test case) doesn't stretch the whole page */
+.sequence-box {
+  max-height: 180px;
+  overflow-y: auto;
+  border: 1px solid #e5e4e7;
+  border-radius: 6px;
+  padding: 0.5rem 0.6rem;
+  background: #fff;
+}
+
+/* live hit/miss tally, sits under the step result in the left panel */
+.live-counter {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.live-counter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  min-width: 3.5rem;
+}
+
+.live-counter-item.hit {
+  background: #d4f5dd;
+}
+
+.live-counter-item.miss {
+  background: #fde0e0;
+}
+
+.live-counter-label {
+  font-size: 0.65rem;
+  color: #555;
+}
+
+.live-counter-item.hit .live-counter-value {
+  color: #1e7a34;
+}
+
+.live-counter-item.miss .live-counter-value {
+  color: #a52a2a;
+}
+
+.live-counter-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.test-case-card pre {
+  background: #f5f5f5;
+  padding: 0.6rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  max-height: 240px;
+}
+
+.test-case-card details {
+  margin-top: 0.5rem;
+}
+
+.test-case-card summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--accent, #6a4bff);
+}
+
+/* the scrollable list of trace log rows */
+.trace-log-list {
+  max-height: 280px;
+  overflow-y: auto;
+  border: 1px solid #e5e4e7;
+  border-radius: 6px;
+  margin-top: 0.4rem;
+}
+
+.trace-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #eee;
+}
+
+.trace-row:last-child {
+  border-bottom: none;
+}
+
+.trace-row:nth-child(even) {
+  background: #f7f6fb;
+}
+
+.trace-step {
+  color: #888;
+  min-width: 2.5rem;
+}
+
+.trace-block {
+  min-width: 4.5rem;
+  font-weight: 600;
+}
+
+.trace-cache {
+  color: #666;
+  font-family: var(--mono, monospace);
+  font-size: 0.75rem;
+  margin-left: auto;
+}
+
+/* cache slot visualization, shared by snapshot + animation views,
+   stacked vertically, capped height + scroll so a large cache (16+ blocks)
+   doesn't push the playback controls off screen */
+.cache-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+  max-width: 220px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.cache-slot {
+  width: 100%;
+  height: 2.6rem;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.75rem;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.cache-slot.empty {
+  background: #f0f0f0;
+  color: #aaa;
+  border-style: dashed;
+}
+
+.cache-slot.filled {
+  background: #eee6ff;
+  border-color: #b8a4ff;
+  font-weight: 600;
+}
+
+.slot-index {
+  font-size: 0.7rem;
+  color: #888;
+}
+
+.slot-value {
+  font-size: 1rem;
+}
+
+/* highlight pulse when a slot changes during animation */
+.cache-slot.pulse-hit {
+  background: #d4f5dd;
+  border-color: #4caf50;
+  transform: scale(1.03);
+}
+
+.cache-slot.pulse-miss {
+  background: #fde0e0;
+  border-color: #e05252;
+  transform: scale(1.03);
+}
+
+.result-tag {
+  font-weight: 700;
+  padding: 0.05rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.result-tag.hit {
+  background: #d4f5dd;
+  color: #1e7a34;
+}
+
+.result-tag.miss {
+  background: #fde0e0;
+  color: #a52a2a;
+}
+
+.animation-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.animation-controls button {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.85rem;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.animation-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.step-counter {
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: 0.25rem;
+}
+
+/* speed slider under the playback controls */
+.speed-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.speed-control input[type='range'] {
+  flex: 1;
+  max-width: 160px;
+}
+
+.speed-label {
+  min-width: 2.5rem;
+  text-align: right;
 }
