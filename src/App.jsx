@@ -24,6 +24,7 @@ function App() {
   // 'snapshot' = just show the final cache state, 'animate' = step through the trace.
   // this is one shared toggle above all 3 test cases, not per-card
   const [viewMode, setViewMode] = useState('snapshot');
+  const [animationKey, setAnimationKey] = useState(0);
 
   // generic input handler, works for any field since we key off e.target.name
   const handleChange = (e) => {
@@ -43,6 +44,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setAnimationKey(prev => prev + 1);
 
     try {
       const response = await fetch(API_URL, {
@@ -130,9 +132,9 @@ function App() {
             <p className="error">{result.error}</p>
           ) : (
             <div className="test-cases">
-              <TestCaseResult title="Sequential" data={result.test_cases.sequential} viewMode={viewMode} />
-              <TestCaseResult title="Mid-Repeat" data={result.test_cases.mid_repeat} viewMode={viewMode} />
-              <TestCaseResult title="Random" data={result.test_cases.random} viewMode={viewMode} />
+              <TestCaseResult key={animationKey} title="Sequential" data={result.test_cases.sequential} viewMode={viewMode} />
+              <TestCaseResult key={animationKey+100} title="Mid-Repeat" data={result.test_cases.mid_repeat} viewMode={viewMode} />
+              <TestCaseResult key={animationKey+200} title="Random" data={result.test_cases.random} viewMode={viewMode} />
             </div>
           )}
         </div>

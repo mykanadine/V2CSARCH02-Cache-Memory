@@ -179,9 +179,8 @@ class CacheSimulator:
         elapsed = time.perf_counter() - start_time
 
         result = self.stats_snapshot(elapsed)
-        # same deal as sequential: it ran twice, so double up the sequence
         # we report back, so it lines up 1:1 with trace_log
-        result["access_sequence"] = access_sequence + access_sequence
+        result["access_sequence"] = access_sequence
         return result
 
     # statistics
