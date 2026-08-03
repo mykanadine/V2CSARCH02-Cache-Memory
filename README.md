@@ -45,7 +45,7 @@ Both terminals need to stay open while you're using it.
 | Cache Access Time | Parameterized | Greater than 0 |
 | Main Memory Access Time | Parameterized | Greater than 0 |
 # Test Cases
-
+![NLT LRU Snapshot](`screenshots/NLT-LRU-Snapshot.png`)
 ## Sequential Sequence
 ## Mid-Repeat Blocks
 ## Random Sequence
