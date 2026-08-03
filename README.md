@@ -139,14 +139,47 @@ Access Order: Random sequences of 64 block accesses (0 to 1023 range)
 
 ### Step-by-Step Animation Views (LT MRU, NLT MRU, LT LRU, NLT LRU)
 ![LT MRU Animation](screenshots/LT-MRU-Animation.png)
-![NLT MRU Animation](screenshots/NLT-MRU-Animation.png)
-![LT LRU Animation](screenshots/LT-LRU-Animation.png)
-![NLT LRU Animation](screenshots/NLT-LRU-Animation.png)
-
-### Final Snapshot Views (LT MRU, NLT MRU, LT LRU, NLT LRU)
 ![LT MRU Snapshot](screenshots/LT-MRU-Snapshot.png)
+**Sequential**
+| Output | Calculation Verification |
+|---|---|
+| Total Accesses | 32 |
+| Hits | 8 |
+| Misses | 24 |
+| Hit Rate | 8 ÷ 32 × 100% = 25% |
+| Miss Rate | 24 ÷ 32 × 100% = 75% |
+| Avg. Memory Access Time | (0.25 × 1 ns) + (0.75 × (1 ns + 10 ns)) = 8.5 ns |
+| Total Memory Access Time | [8 * (8 * 1 ns)] + [24 * (1 ns + 8 * 10 ns)] = 2008 ns |
+
+**Mid-Repeat**
+| Output | Calculation Verification |
+|---|---|
+| Total Accesses | 80 |
+| Hits | 37 |
+| Misses | 43 |
+| Hit Rate | 37 ÷ 80 × 100% = 46.25% |
+| Miss Rate | 43 ÷ 80 × 100% = 53.75% |
+| Avg. Memory Access Time | (0.4625 × 1 ns) + (0.5375 × (1 ns + 10 ns)) = 6.375 ns |
+| Total Memory Access Time | [37 * (8 * 1 ns)] + [43 * (1 ns + 8 * 10 ns)] = 3779 ns |
+
+**Random**
+| Output | Calculation Verification |
+|---|---|
+| Total Accesses | 64 |
+| Hits | 0 |
+| Misses | 64 |
+| Hit Rate | 0 ÷ 64 × 100% = 0% |
+| Miss Rate | 64 ÷ 64 × 100% = 100% |
+| Avg. Memory Access Time | (0 × 1 ns) + (1.0 × (1 ns + 10 ns)) = 11 ns |
+| Total Memory Access Time | [0 * (8 * 1 ns)] + [64 * (1 ns + 8 * 10 ns)] = 5184 ns |
+
+![NLT MRU Animation](screenshots/NLT-MRU-Animation.png)
 ![NLT MRU Snapshot](screenshots/NLT-MRU-Snapshot.png)
+
+![LT LRU Animation](screenshots/LT-LRU-Animation.png)
 ![LT LRU Snapshot](screenshots/LT-LRU-Snapshot.png)
+
+![NLT LRU Animation](screenshots/NLT-LRU-Animation.png)
 ![NLT LRU Snapshot](screenshots/NLT-LRU-Snapshot.png)
 
 ### Different Timing Values (Cache Access Time & Memory Access Time)
