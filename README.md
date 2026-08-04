@@ -2,6 +2,9 @@
 ## Youtube demo video link:
 https://youtu.be/iLjW6f8ndhk
 
+## Deployed link:
+https://v2-csarch-02-cache-memory.vercel.app/
+
 
 ## Structure
 
