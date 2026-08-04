@@ -397,6 +397,8 @@
   font-size: 0.85rem;
   border: 1px solid #ccc;
   background: #fff;
+  color: #333;
+  color-scheme: light;
   border-radius: 6px;
   cursor: pointer;
 }

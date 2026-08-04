@@ -16,7 +16,7 @@ function App() {
     block_size: 4,
     read_policy: 0,
     replacement_algorithm: 0,
-    cache_access_time: 2,
+    cache_access_time: 1,
     main_memory_access_time: 10,
   });
   const [result, setResult] = useState(null);
@@ -95,11 +95,11 @@ function App() {
           </select>
         </label>
         <label>
-          Cache Access Time:
+          Cache Access Time (ns):
           <input type="number" name="cache_access_time" min="1" step="1" value={formData.cache_access_time} onChange={handleChange} />
         </label>
         <label>
-          Main Memory Access Time:
+          Main Memory Access Time (ns):
           <input type="number" name="main_memory_access_time" min="1" step="1" value={formData.main_memory_access_time} onChange={handleChange} />
         </label>
         <button type="submit" disabled={loading}>{loading ? 'Running...' : 'Run Simulation'}</button>
@@ -133,8 +133,8 @@ function App() {
           ) : (
             <div className="test-cases">
               <TestCaseResult key={animationKey} title="Sequential" data={result.test_cases.sequential} viewMode={viewMode} />
-              <TestCaseResult key={animationKey+100} title="Mid-Repeat" data={result.test_cases.mid_repeat} viewMode={viewMode} />
-              <TestCaseResult key={animationKey+200} title="Random" data={result.test_cases.random} viewMode={viewMode} />
+              <TestCaseResult key={animationKey + 100} title="Mid-Repeat" data={result.test_cases.mid_repeat} viewMode={viewMode} />
+              <TestCaseResult key={animationKey + 200} title="Random" data={result.test_cases.random} viewMode={viewMode} />
             </div>
           )}
         </div>
@@ -197,8 +197,8 @@ function TestCaseResult({ title, data, viewMode }) {
         <div><span>Misses: </span><strong>{data.miss_count}</strong></div>
         <div><span>Hit Rate: </span><strong>{(data.hit_rate * 100).toFixed(2)}%</strong></div>
         <div><span>Miss Rate: </span><strong>{(data.miss_rate * 100).toFixed(2)}%</strong></div>
-        <div><span>Avg. Memory Access Time: </span><strong>{data.average_memory_access_time.toFixed(3)}</strong></div>
-        <div><span>Total Memory Access Time: </span><strong>{data.total_memory_access_time.toFixed(3)}</strong></div>
+        <div><span>Avg. Memory Access Time (ns): </span><strong>{data.average_memory_access_time.toFixed(3)}</strong></div>
+        <div><span>Total Memory Access Time (ns): </span><strong>{data.total_memory_access_time.toFixed(3)}</strong></div>
         <div><span>Execution Time (s)</span><strong>{data.execution_time_seconds.toFixed(6)}</strong></div>
       </div>
 
